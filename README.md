@@ -17,12 +17,14 @@ See [Version_changes.md](./Version_changes.md) to keep track of changes made to 
 
 # E-book
 
-* You can download the book from any of these links for free (you can also pay if you wish)
+* You can download the pdf/epub versions of the book from any of these links for free (you can also pay if you wish)
     * https://learnbyexample.gumroad.com/l/rubyregexp
     * https://leanpub.com/rubyregexp
-* You can also get the book as bundles:
+* You can also get the book as part of these bundles:
     * **Awesome Regex** bundle from https://learnbyexample.gumroad.com/l/regex or https://leanpub.com/b/regex
     * **Ruby text processing** bundle from https://learnbyexample.gumroad.com/l/ruby-textprocessing or https://leanpub.com/b/ruby-textprocessing
+    * **All books bundle** bundle from https://learnbyexample.gumroad.com/l/all-books
+        * Includes all my programming books
 * See https://learnbyexample.github.io/books/ for list of other books
 
 For a preview of the book, see [sample chapters](./sample_chapters/ruby_regexp_sample.pdf)
