@@ -17,8 +17,9 @@ See [Version_changes.md](./Version_changes.md) to keep track of changes made to 
 
 # E-book
 
-* You can download the pdf/epub versions of the book for free from https://learnbyexample.gumroad.com/l/rubyregexp (you can also pay if you wish)
-* If you have Leanpub Reader membership, you can get the book for free from https://leanpub.com/rubyregexp
+* You can download the pdf/epub versions of the book for free using the below links (you can also pay if you wish)
+    * https://learnbyexample.gumroad.com/l/rubyregexp
+    * https://leanpub.com/rubyregexp
 * You can also get the book as part of these bundles:
     * **Awesome Regex** bundle from https://learnbyexample.gumroad.com/l/regex or https://leanpub.com/b/regex
     * **Ruby text processing** bundle from https://learnbyexample.gumroad.com/l/ruby-textprocessing or https://leanpub.com/b/ruby-textprocessing
