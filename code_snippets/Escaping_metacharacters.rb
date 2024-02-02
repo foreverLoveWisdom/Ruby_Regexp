@@ -1,8 +1,8 @@
-## Escaping with \
+## Escaping with backslash
 
 'a^2 + b^2 - C*3'.match?(/b^2/)
 
-'a^2 + b^2 - C*3'.gsub(/(a|b)\^2/) { |m| m.upcase }
+'a^2 + b^2 - C*3'.gsub(/(a|b)\^2/) { _1.upcase }
 
 '(a*b) + c'.gsub(/\(|\)/, '')
 
@@ -34,11 +34,11 @@ Regexp.union(/^cat|dog$/, 'a^b')
 
 ## Escaping delimiter
 
-path = '/abc/123/foo/baz/ip.txt'
+path = '/home/joe/report/sales/ip.txt'
 
-path.sub(/\A\/abc\/123\//, '~/')
+path.sub(/\A\/home\/joe\//, '~/')
 
-path.sub(%r#\A/abc/123/#, '~/')
+path.sub(%r#\A/home/joe/#, '~/')
 
 ## Escape sequences
 

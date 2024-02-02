@@ -1,14 +1,16 @@
 ## match method
 
-'abc ac adc abbbc'.match(/ab*c/)
+'too soon a song snatch'.match(/so+n/)
 
-'abc ac adc abbbc'.match('a.*d')
+'too soon a song snatch'.match('a.*g')
 
-'abc ac adc abbbc'.match(/ab*c/, 7)
+'too soon a song snatch'.match(/so+n/, 7)
 
-'abc ac adc abbbc'.match(/a.*d/)[0]
+'too soon a song snatch'.match(/on.*g/)[0]
 
-m = 'abc ac adc abbbc'.match(/a(.*)d(.*a)/)
+purchase = 'coffee:100g tea:250g sugar:75g chocolate:50g'
+
+m = purchase.match(/:(.*?)g.*?:(.*?)g.*?chocolate:(.*?)g/)
 
 m.to_a
 
@@ -34,17 +36,17 @@ m.string
 
 ## match method with block
 
-'abc ac adc abbbc'.match(/a(.*)d(.*a)/) { |m| puts m[2], m[1] }
+'THIS is goodbye then'.match(/T(.*S).*(g.*?e)/) { |m| puts m[2], m[1] }
 
-'abc ac adc abbbc'.match(/xyz/) { 2 * 3 }
+'apple mango'.match(/xyz/) { puts 2 * 3 }
 
 ## Using regexp as a string index
 
-'abc ac adc abbbc'[/c.*d/]
+'too soon a song snatch'[/so+n/]
 
-'abc ac adc abbbc'[/a(.*)d(.*a)/, 1]
+'too soon a song snatch'[/(t.*?s).*(s.*g)/, 2]
 
-'abc ac adc abbbc'[7..][/ab*c/]
+'too soon a song snatch'[7..][/so+n/]
 
 word = 'elephant'
 
@@ -54,25 +56,33 @@ word
 
 ## scan method
 
-'abc ac adc abbbc'.scan(/ab*c/)
+'too soon a song snatch'.scan(/so*n/)
 
-'abc ac adc abbbc'.scan(/ab+c/)
+'too soon a song snatch'.scan(/so+n/)
 
-'par spar apparent spare part'.scan(/\bs?pare?\b/)
+s = 'PAR spar apparent SpArE part pare'
 
-'that is quite a fabricated tale'.scan(/t.*a/)
+s.scan(/\bs?pare?\b/i)
 
-'that is quite a fabricated tale'.scan(/t.*?a/)
+s = 'green:3.14:teal::brown:oh!:blue'
 
-'abc ac adc abbc xabbbcz bbb bc abbbbbc'.scan(/ab*c/)
+s.scan(/:.*:/)
 
-'abc ac adc abbc xabbbcz bbb bc abbbbbc'.scan(/a(b*)c/)
+s.scan(/:.*?:/)
 
-'2020/04/25,1986/Mar/02,77/12/31'.scan(%r{(.*?)/(.*?)/(.*?),})
+s.scan(/:.*+:/)
 
-'abc ac adc abbbc'.scan(/ab+c/) { |m| puts m.upcase }
+purchase = 'coffee:100g tea:250g sugar:75g chocolate:50g'
 
-'xx:yyy x: x:yy :y'.scan(/(x*):(y*)/) { |a, b| puts a.size + b.size }
+purchase.scan(/:.*?g/)
+
+purchase.scan(/:(.*?)g/)
+
+'2023/04/25,1986/Mar/02,77/12/31'.scan(%r{(.*?)/(.*?)/(.*?),})
+
+'too soon a song snatch'.scan(/so+n/) { puts _1.upcase }
+
+'xx:yyy x: x:yy :y'.scan(/(x*):(y*)/) { puts _1.size + _2.size }
 
 ## split with capture groups
 
@@ -104,9 +114,9 @@ $&
 
 $'
 
-'abc ac adc abbbc'.scan(/ab+c/) { puts $&.upcase }
+'too soon a song snatch'.scan(/so+n/) { puts $&.upcase }
 
-'abc ac adc abbbc'.gsub(/ab+c/) { puts $~.begin(0) }
+'too soon a song snatch'.gsub(/so+n/) { puts $~.begin(0) }
 
 $~
 

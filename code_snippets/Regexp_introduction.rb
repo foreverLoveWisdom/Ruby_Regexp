@@ -10,11 +10,15 @@ sentence.match?(/is/)
 
 sentence.match?(/z/)
 
+/ring/.match?(sentence)
+
 sentence = 'This is a sample string'
 
 sentence.match?(/is/, 2)
 
 sentence.match?(/is/, 6)
+
+## Regexp modifiers
 
 sentence = 'This is a sample string'
 

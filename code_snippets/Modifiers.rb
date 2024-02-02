@@ -1,10 +1,10 @@
 ## i modifier
 
-'Cat' =~ /cat/
+'A Cat' =~ /cat/
 
-'Cat' =~ /cat/i
+'A Cat' =~ /cat/i
 
-'Cat scat CATER cAts'.scan(/cat/i)
+'Cat cot CATER ScUtTLe'.scan(/c.t/i)
 
 'Sample123string42with777numbers'.scan(/[a-z]+/i)
 
@@ -37,10 +37,10 @@ end
 
 ## x modifier
 
-pat = /\A(                 # group-1, captures first 3 columns
+pat = /\A(                 # group-1, captures the first 3 columns
            (?:[^,]+,){3}   # non-capturing group to get the 3 columns
          )
-         ([^,]+)           # group-2, captures 4th column
+         ([^,]+)           # group-2, captures the 4th column
       /x
 
 '1,2,3,4,5,6,7'.sub(pat, '\1(\2)')
@@ -49,11 +49,13 @@ pat = /\A(                 # group-1, captures first 3 columns
 
 'cat and dog'.match?(/t\ a/x)
 
+'cat and dog'.match?(/t[ ]a/x)
+
 'cat and dog'.match?(/t\x20a/x)
 
-'foo a#b 123'[/a#b/x]
+'apple a#b 123'[/a#b/x]
 
-'foo a#b 123'[/a\#b/x]
+'apple a#b 123'[/a\#b/x]
 
 ## Inline comments
 

@@ -18,13 +18,13 @@ words.grep(/er\z/)
 
 words.grep(/t\z/)
 
-'dare'.sub(/are\z/, 'X')
+"spare\ndare".sub(/are\z/, 'X')
 
-'dare'.sub(/are\Z/, 'X')
+"spare\ndare".sub(/are\Z/, 'X')
 
-"dare\n".sub(/are\z/, 'X')
+"spare\ndare\n".sub(/are\z/, 'X')
 
-"dare\n".sub(/are\Z/, 'X')
+"spare\ndare\n".sub(/are\Z/, 'X')
 
 'cat'.match?(/\Acat\z/)
 
@@ -54,7 +54,7 @@ pets.match?(/^dog$/)
 
 "hi hello\ntop spot".match?(/^top/)
 
-"spare\npar\ndare".match?(/er$/)
+"spare\npar\nera\ndare".match?(/er$/)
 
 "spare\npar\ndare".each_line.grep(/are$/)
 
@@ -64,17 +64,17 @@ str = "catapults\nconcatenate\ncat"
 
 puts str.gsub(/^/, '1: ')
 
-puts str.gsub(/^/).with_index(1) { |m, i| "#{i}: " }
+puts str.gsub(/^/).with_index(1) { "#{_2}: " }
 
 puts str.gsub(/$/, '.')
 
-puts "1\n2\n".gsub(/^/, 'foo ')
+puts "1\n2\n".gsub(/^/, 'fig ')
 
-puts "1\n\n".gsub(/^/, 'foo ')
+puts "1\n\n".gsub(/^/, 'fig ')
 
-puts "1\n2\n".gsub(/$/, ' baz')
+puts "1\n2\n".gsub(/$/, ' banana')
 
-puts "1\n\n".gsub(/$/, ' baz')
+puts "1\n\n".gsub(/$/, ' banana')
 
 ## Word anchors
 
@@ -88,13 +88,17 @@ words.gsub(/par\b/, 'X')
 
 words.gsub(/\bpar\b/, 'X')
 
+words = 'par spar apparent spare part'
+
 puts words.gsub(/\b/, '"').tr(' ', ',')
 
 '-----hello-----'.gsub(/\b/, ' ')
 
-'foo_baz=num1+35*42/num2'.gsub(/\b/, ' ')
+'output=num1+35*42/num2'.gsub(/\b/, ' ')
 
-'foo_baz=num1+35*42/num2'.gsub(/\b/, ' ').strip
+'output=num1+35*42/num2'.gsub(/\b/, ' ').strip
+
+## Opposite Word anchors
 
 words = 'par spar apparent spare part'
 

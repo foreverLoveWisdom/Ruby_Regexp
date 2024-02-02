@@ -1,5 +1,18 @@
 <br>
 
+### 3.0
+
+* Ruby version updated to **3.3.0**
+* Corrected examples and descriptions for Atomic grouping, `\G` and `\K` features
+* In general, many of the examples, exercises, solutions, descriptions and external links were updated/corrected
+* Updated Acknowledgements section
+* Code snippets related to info/warning sections will now appear as a single block
+* Book title changed to **Understanding Ruby Regexp**
+* New cover image
+* Images centered for EPUB format
+
+<br>
+
 ### 2.6
 
 * Updated `ruby` version to **3.0.0**

@@ -2,7 +2,9 @@
 
 '[52] apples [and] [31] mangoes'.gsub(/\[(\d+)\]/, '\1')
 
-'_foo_ __123__ _baz_'.gsub(/(_)?_/, '\1')
+'[52] apples [and] [31] mangoes'.gsub(/\[(\d+)\]/, '\15')
+
+'_apple_ __123__ _banana_'.gsub(/(_)?_/, '\1')
 
 '52 apples and 31 mangoes'.gsub(/\d+/, '(\0)')
 
@@ -10,7 +12,7 @@
 
 'fork,42,nice,3.14'.sub(/,.+/, '\0,\`')
 
-'good,bad 42,24'.gsub(/(\w+),(\w+)/, '\2,\1')
+'good,bad 42,24 x,y'.gsub(/(\w+),(\w+)/, '\2,\1')
 
 %w[effort flee facade oddball rat tool].grep(/(\w)\1/)
 
@@ -23,6 +25,12 @@
 s = 'abcdefghijklmna1d'
 
 s.sub(/(.)(.)(.)(.)(.)(.)(.)(.)(.)(.)(.)(.).*\1\x31/, 'X')
+
+'[52] apples [and] [31] mangoes'.gsub(/\[(\d+)\]/) { $15 }
+
+'[52] apples [and] [31] mangoes'.gsub(/\[(\d+)\]/) { $1 + "5" }
+
+'[52] apples [and] [31] mangoes'.gsub(/\[(\d+)\]/) { "#{$1}5" }
 
 ## Non-capturing groups
 
@@ -120,9 +128,9 @@ eqn3.scan(lvln)
 
 ## Named capture groups
 
-'good,bad 42,24'.gsub(/(?<fw>\w+),(?<sw>\w+)/, '\k<sw>,\k<fw>')
+'good,bad 42,24 x,y'.gsub(/(?<fw>\w+),(?<sw>\w+)/, '\k<sw>,\k<fw>')
 
-'good,bad 42,24'.gsub(/(?'fw'\w+),(?'sw'\w+)/, '\k<sw>,\k<fw>')
+'good,bad 42,24 x,y'.gsub(/(?'fw'\w+),(?'sw'\w+)/, '\k<sw>,\k<fw>')
 
 row = 'today,2008-03-24,food,2012-08-12,nice,5632'
 
@@ -160,7 +168,7 @@ words.grep(/\A(?:<\w+>|\w+)\z/)
 
 words.grep(/\A(?:<?\w+>?)\z/)
 
-words = ['(hi)', 'good-bye', 'bad', '(42)', '-oh', 'i-j', '(-)']
+words = ['(hi)', 'good-bye', 'bad', '(42)', '-oh', 'i-j', '(-)', '(oh-no)']
 
 words.grep(/\A(?:(\()?\w+(?(1)\)|-\w+))\z/)
 

@@ -1,12 +1,14 @@
-## OR conditional
+## Alternation
 
-'I like cats'.match?(/cat|dog/)
+pet = /cat|dog/
 
-'I like dogs'.match?(/cat|dog/)
+'I like cats'.match?(pet)
 
-'I like parrots'.match?(/cat|dog/)
+'I like dogs'.match?(pet)
 
-'catapults concatenate cat scat'.gsub(/\Acat|cat\b/, 'X')
+'I like parrots'.match?(pet)
+
+'catapults concatenate cat scat cater'.gsub(/\Acat|cat\b/, 'X')
 
 'cat dog bee parrot fox'.gsub(/cat|dog|fox/, 'mammal')
 

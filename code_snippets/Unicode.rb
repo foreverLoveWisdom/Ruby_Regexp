@@ -1,6 +1,6 @@
 ## Encoding modifiers
 
-'foo - baz'.gsub(/\w+/n, '(\0)')
+'apple - banana'.gsub(/\w+/n, '(\0)')
 
 'fox:αλεπού'.scan(/\w+/n)
 
@@ -16,13 +16,13 @@
 
 'fox:αλεπού,eagle:αετός'.scan(/\p{Greek}+/)
 
-'φοο12,βτ_4,foo'.scan(/\p{Word}+/)
+'φοο12,βτ_4;cat'.scan(/\p{Word}+/)
 
-'φοο12,βτ_4,foo'.gsub(/\P{L}+/, '')
+'φοο12,βτ_4;cat'.gsub(/\P{L}+/, '')
 
 ## Codepoints and Unicode escapes
 
-'fox:αλεπού'.codepoints.map { |i| '%x' % i }
+'fox:αλεπού'.codepoints.map { '%x' % _1 }
 
 puts "\u{66 6f 78 3a 3b1 3bb 3b5 3c0 3bf 3cd}"
 
@@ -30,7 +30,7 @@ puts "\u{66 6f 78 3a 3b1 3bb 3b5 3c0 3bf 3cd}"
 
 ## \X vs dot metacharacter
 
-'g̈'.codepoints.map { |i| '%x' % i }
+'g̈'.codepoints.map { '%x' % _1 }
 
 puts "\u{67 308}"
 

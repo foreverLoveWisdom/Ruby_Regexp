@@ -2,15 +2,17 @@
 
 'tac tin c.t abc;tuv acute'.gsub(/c.t/, 'X')
 
-'breadth markedly reported overrides'.gsub(/r..d/) { |s| s.upcase }
+'breadth markedly reported overrides'.gsub(/r..d/) { _1.upcase }
 
-"42\t33".sub(/2.3/, '8')
+"42\t35".sub(/2.3/, '8')
+
+"a\nb".match?(/a.b/)
 
 ## split method
 
 'apple-85-mango-70'.split(/-/)
 
-'bus:3:car:5:van'.split(/:.:/)
+'bus:3:car:-:van'.split(/:.:/)
 
 'apple-85-mango-70'.split(/-/, 2)
 
@@ -50,17 +52,23 @@ words.grep(/\bre.?d\b/)
 
 '3111111111125111142'.split(/1+/)
 
-demo = %w[abc ac adc abbc xabbbcz bbb bc abbbbbc]
+repeats = %w[abc ac adc abbc xabbbcz bbb bc abbbbbc]
 
-demo.grep(/ab{1,4}c/)
+repeats.grep(/ab{1,4}c/)
 
-demo.grep(/ab{3,}c/)
+repeats.grep(/ab{3,}c/)
 
-demo.grep(/ab{,2}c/)
+repeats.grep(/ab{,2}c/)
 
-demo.grep(/ab{3}c/)
+repeats.grep(/ab{3}c/)
 
-## AND conditional
+'a{5} = 10'.sub(/a\{5}/, 'a{6}')
+
+'report_{a,b}.txt'.sub(/_{a,b}/, '-{c,d}')
+
+'# heading ### sub-heading'.gsub(/\#{2,}/, '%')
+
+## Conditional AND
 
 'Error: not a valid input'.match?(/Error.*valid/)
 
@@ -74,15 +82,15 @@ seq2.match?(/cat.*dog|dog.*cat/)
 
 patterns = [/cat/, /dog/]
 
-patterns.all? { |re| seq1.match?(re) }
+patterns.all? { seq1.match?(_1) }
 
-patterns.all? { |re| seq2.match?(re) }
+patterns.all? { seq2.match?(_1) }
 
 ## What does greedy mean?
 
 'foot'.sub(/f.?o/, 'X')
 
-puts 'blah \< foo < bar \< blah < baz'.gsub(/\\?</, '\<')
+puts 'blah \< fig < apple \< blah < cat'.gsub(/\\?</, '\<')
 
 'hand handy handful'.gsub(/hand(y|ful)?/, 'X')
 
@@ -104,27 +112,35 @@ sentence.sub(/t.*a.*u/, 'X')
 
 '123456789'.sub(/.{2,5}?/, 'X')
 
+'green:3.14:teal::brown:oh!:blue'.split(/:.*:/)
+
 'green:3.14:teal::brown:oh!:blue'.split(/:.*?:/)
-
-sentence = 'that is quite a fabricated tale'
-
-sentence.sub(/t.*?a/, 'X')
-
-sentence.sub(/t.*?a.*?f/, 'X')
-
-sentence.sub(/q.*?e$/, 'X')
 
 ## Possessive quantifiers
 
-%w[abc ac adc abbc xabbbcz bbb bc abbbbbc].grep(/ab*c/)
+ip = 'fig:mango:pineapple:guava:apples:orange'
 
-%w[abc ac adc abbc xabbbcz bbb bc abbbbbc].grep(/ab*+c/)
+ip.gsub(/:.*+/, 'X')
 
-'0501 035 154 12 26 98234'.gsub(/\b0*\d{3,}\b/, 'X')
+ip.match?(/:.*+apple/)
 
-'0501 035 154 12 26 98234'.gsub(/\b0*+\d{3,}\b/, 'X')
+numbers = '42 314 001 12 00984'
 
-'abbbc foooooot'.gsub(/(?>(b|o)+)/, 'X')
+numbers.scan(/0*\d{3,}/)
 
-'0501 035 154 12 26 98234'.gsub(/\b(?>0*)\d{3,}\b/, 'X')
+numbers.scan(/0*+\d{3,}/)
+
+numbers.scan(/0*[1-9]\d{2,}/)
+
+## Atomic grouping
+
+numbers = '42 314 001 12 00984'
+
+numbers.scan(/(?>0*)\d{3,}/)
+
+ip = 'fig::mango::pineapple::guava::apples::orange'
+
+ip.match(/::.*?::apple/)[0]
+
+ip.match(/(?>::.*?::)apple/)[0]
 
